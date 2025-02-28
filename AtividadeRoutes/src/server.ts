@@ -4,6 +4,7 @@ import produtoRoutes from "./routes/produtoRoutes";
 
 const app: Application = express();
 app.use(express.json());
+
 app.use("/api", usuarioRoutes);
 app.use("/api", produtoRoutes);
 
