@@ -15,6 +15,7 @@ export class Cena {
         if (this.escolhas[opcao]) {
             this.escolhas[opcao]();
         } else {
-            console.log("Escolha inválida.");
+            console.log("Escolha invalida.");
         }
-    }}
+    }
+}

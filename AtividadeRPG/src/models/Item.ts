@@ -6,3 +6,4 @@ export class Item {
         this.efeito(personagem);
     }
 }
+
