@@ -1,5 +1,5 @@
 import * as readline from "readline";
-import { refrigerante } from "../models/Item";
+import { Refrigerante } from "../models/Refrigerante";
 import { PeteFesteiro } from "../models/PeteFesteiro";
 import { Personagem } from "../models/Personagem";
 import { Rigby } from "../models/Rigby";
@@ -13,6 +13,7 @@ export class Jogo {
     private cenaAtual: number = 1;
     private jogador: Personagem;
     private pete = new PeteFesteiro();
+    private refrigerante = new Refrigerante();
     
     constructor() {
         this.jogador = new Mordecai();
@@ -76,7 +77,7 @@ export class Jogo {
                 this.executarCena();
                 break;
             case 8:
-                refrigerante.efeito(this.jogador);
+                this.refrigerante.efeito(this.jogador);
                 console.log("Você sente a energia renovada!");
                 this.cenaAtual = 4;
                 this.executarCena();
