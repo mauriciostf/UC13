@@ -45,7 +45,8 @@ export class Jogo {
                 console.log("Pete ignora voces e continua dançando!Ele esta muito animado!");
                 console.log("1. Chamar Musculoso");
                 console.log("2. Desafiar Pete para uma dança")
-                this.esperarEscolha([1, 2], { 1: 5, 2: 6 });
+                console.log("3. Tomar um refrigerante")
+                this.esperarEscolha([1, 2, 3], { 1: 5, 2: 6, 3: 11});
                 break;
             case 3:
                 console.log("Vocês tentam desligar a música, mas Pete impede vocês e aumenta o volume!");
@@ -56,6 +57,9 @@ export class Jogo {
                 console.log("Pete esta  pronto para lutar! Você entra em combate!");
                 this.jogador.atacar(this.pete);
                 this.pete.atacar(this.jogador);
+                if (Math.random() < 0.5) { 
+                    this.jogador.adicionarItem(new Refrigerante());
+                }
                 console.log("1. Continuar lutando");
                 console.log("2. Usar refrigerante");
                 this.esperarEscolha([1, 2], { 1: 7, 2: 8 });
@@ -77,8 +81,11 @@ export class Jogo {
                 this.executarCena();
                 break;
             case 8:
-                this.refrigerante.efeito(this.jogador);
-                console.log("Você sente a energia renovada!");
+                if (this.jogador.inventario.length > 0) {
+                    this.jogador.usarRefrigerante();
+                } else {
+                    console.log("❌ Você não tem refrigerantes!");
+                }
                 this.cenaAtual = 4;
                 this.executarCena();
                 break;
@@ -91,6 +98,18 @@ export class Jogo {
                 console.log("Pete ri de você e continua dançando! Você perdeu a chance de vencer!");
                 this.rl.close();
                 break;
+            case 11:
+                if (this.jogador.inventario.length > 0) {
+                    this.jogador.usarRefrigerante();
+                } else {
+                    console.log("❌ Você não tem refrigerantes!");
+                }
+                console.log("1. Chamar o musculoso")
+                console.log("2. Tentar desligar a musica")
+                this.esperarEscolha([1, 2], { 1: 5, 2: 3});
+               
+                break
+            
             default:
                 console.log("Escolha inválida, tente novamente.");
                 this.executarCena();
