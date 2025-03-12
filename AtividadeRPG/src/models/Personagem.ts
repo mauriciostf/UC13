@@ -30,6 +30,7 @@ export class Personagem {
             console.log(`${this.nome} tem ${this.vida} de vida restante.`);
         }
     }
+    
     adicionarItem(item: Refrigerante): void {
         this.inventario.push(item);
         console.log(`🥤 ${this.nome} pegou um ${item.nome}!`);

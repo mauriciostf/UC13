@@ -1,7 +1,6 @@
 import { Item } from "./Item";
 import { Personagem } from "./Personagem";
 
-// Classe Refrigerante, herda de Item
 export class Refrigerante extends Item {
     constructor() {
         super("Refrigerante", (personagem: Personagem) => {

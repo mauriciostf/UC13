@@ -57,7 +57,8 @@ export class Jogo {
                 console.log("Pete esta  pronto para lutar! Você entra em combate!");
                 this.jogador.atacar(this.pete);
                 this.pete.atacar(this.jogador);
-                if (Math.random() < 0.5) { 
+                if (Math.random() < 0.5) {
+                    this.pete.droparItem();
                     this.jogador.adicionarItem(new Refrigerante());
                 }
                 console.log("1. Continuar lutando");
