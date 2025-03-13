@@ -17,7 +17,7 @@ export class Personagem {
     }
 
     atacar(inimigo: Personagem): void {
-        const dano = Math.max(this.forca - inimigo.defesa, 0);
+        const dano = (this.forca - inimigo.defesa);
         inimigo.receberDano(dano);
         console.log(`${this.nome} atacou ${inimigo.nome} causando ${dano} de dano!`);
     }

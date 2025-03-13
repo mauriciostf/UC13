@@ -4,7 +4,7 @@ import { Refrigerante } from "./Refrigerante";
 
 export class PeteFesteiro extends Personagem implements Inimigo {
     constructor() {
-        super("Pete Festeiro", 100, 15, 5);
+        super("Pete Festeiro", 120, 20, 5);
     }
 
     droparItem(): void {
