@@ -5,7 +5,7 @@ import userRoutes from "./routes/userRoutes";
 
 const app: Application = express();
 app.use(express.json());
-app.use(userRoutes);
+app.use('/api', userRoutes);
 
 createConnection()
   .then(() => {
