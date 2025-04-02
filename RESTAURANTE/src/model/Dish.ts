@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { OrderItem } from "./OrderItem";
 import { User } from "./User";
+import { favoriteDish } from "./FavoritDish";
 
 @Entity()
 export class Dish {
@@ -22,8 +23,8 @@ export class Dish {
   @OneToMany(() => OrderItem, (orderItem) => orderItem.dish)
   orderItems!: OrderItem[];
 
-  @ManyToOne(() => User, (user) => user.favoriteDisher)
-  user: User[]
+  @OneToMany(() => favoriteDish, (favoriteDishes) => favoriteDishes.dish)
+  favoriteDishes!: favoriteDish[];
 
 constructor(name: string, description: string, price: number, available: boolean){
     this.name = name;
